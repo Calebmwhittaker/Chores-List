@@ -1,0 +1,24 @@
+{
+  "name": "chores-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "colors": "^1.4.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.1",
+    "mongoose": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
