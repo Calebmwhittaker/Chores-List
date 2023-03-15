@@ -42,16 +42,14 @@ const updateChore = asyncHandler(async (req, res) => {
     throw new Error("Chore not found");
   }
 
-  const user = await User.findById(req.user.id);
-
   //Check for user
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("User not found");
   }
 
   //Make sure logged in user matches goal user
-  if (chores.user.toString() !== user.id) {
+  if (chores.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("User not authorized");
   }
@@ -74,16 +72,14 @@ const deleteChore = asyncHandler(async (req, res) => {
     throw new Error("No user with that id");
   }
 
-  const user = await User.findById(req.user.id);
-
   //Check for user
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("User not found");
   }
 
   //Make sure logged in user matches goal user
-  if (chores.user.toString() !== user.id) {
+  if (chores.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("User not authorized");
   }
