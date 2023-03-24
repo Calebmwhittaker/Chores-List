@@ -73,6 +73,19 @@ const loginUser = asyncHandler(async (req, res) => {
   }
 });
 
+const loginAdmin = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    res.status(400);
+    throw new Error("Please enter in required text fields");
+  }
+  const admin = await User.findOne({email})
+  if (admin && (await bcrypt.compare(password, admin.password))) {
+    const usersData = await User.find()
+    res.json()
+  }
+});
+
 //@desc     Get user data
 //@route    GET /api/users/me
 //@access   Private
