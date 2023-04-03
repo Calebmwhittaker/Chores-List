@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: false })); //Parses urlencoded data
 //App Routes
 app.use("/api/chores", require("./routes/choreRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/ping", require("./routes/pingRoutes"));
 
 // Serve frontend
 if (process.env.NODE_ENV === "production") {
