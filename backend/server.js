@@ -3,6 +3,7 @@ const path = require("path");
 const express = require("express");
 const connectDB = require("./config/db");
 const protect = require("./middleware/authMiddleware");
+const cors = require("cors");
 const errorHandler = require("./middleware/errorMiddleware");
 require("colors");
 require("dotenv").config();
@@ -15,6 +16,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 //Parsing Middleware
+app.use(cors({ origin: process.env.FRONTEND_URL }));
 app.use(express.json()); //Parses json data
 app.use(express.urlencoded({ extended: false })); //Parses urlencoded data
 
