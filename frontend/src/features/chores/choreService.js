@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "/api/chores/";
+const API_URL = process.env.REACT_APP_BACKEND_URL + "/api/chores/";
 
 //Create new chore
 const createChore = async (choreData, token) => {
